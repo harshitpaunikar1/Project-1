@@ -12,3 +12,7 @@
 
 - Task summary: Used the next day to keep the momentum going for X Education Lead Prioritization. I was still piecing things together, so I focused on trying to gather the input data, constraints, and any business rules and wrote down the stuff that looked important. At this stage nothing was fully locked, so I kept a rough list of things that looked useful and ignored the rest for now. I kept bouncing between the notebook, small observations, and quick plots until the direction felt usable.
 - Deliverable: I wrapped up the day with inputs and constraints mostly in place. It was not perfect, but it was good enough to keep the project moving. I also left myself a few rough reminders for the next day so I would not have to rediscover the same context again.
+## 2022-03-30 - Day 3: Data cleanup pass
+
+- Task summary: By this point I had the rough direction, so the work became more practical. I spent most of the day trying to clean and standardize the inputs so they can drive the model and make the whole thing feel less half baked. By now I had enough structure to keep going without staring at the screen too long, which honestly helped a lot. Most of the progress here came from patient cleanup more than anything flashy.
+- Deliverable: I wrapped up the day with prepared inputs mostly in place. It was not perfect, but it was good enough to keep the project moving. There were still a couple of loose parts, but nothing serious enough to block the next step.
