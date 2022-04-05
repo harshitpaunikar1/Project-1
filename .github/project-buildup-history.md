@@ -28,3 +28,7 @@
 
 - Task summary: This was the middle stretch where the project started feeling real. I kept going and tried to turn the score into a ranked list or rule-based allocation method, then cleaned up whatever looked confusing or weak from the earlier days. By now I had enough structure to keep going without staring at the screen too long, which honestly helped a lot. Most of the progress here came from patient cleanup more than anything flashy.
 - Deliverable: Ended the day with allocation logic in hand, plus a few side notes on what still needed fixing later. There were still a couple of loose parts, but nothing serious enough to block the next step.
+## 2022-04-05 - Day 7: Scenario testing
+
+- Task summary: This was the middle stretch where the project started feeling real. I kept going and tried to run a few what-if cases to see how the recommendations change, then cleaned up whatever looked confusing or weak from the earlier days. Once the base made some sense, I could finally move a bit faster and stop second guessing every tiny decision. A lot of this also meant checking if the numbers were making sense and not just trusting the first result that showed up.
+- Deliverable: Ended the day with scenario table in hand, plus a few side notes on what still needed fixing later. It was not super polished, just stable enough that I felt okay moving forward.
