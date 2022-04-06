@@ -32,3 +32,7 @@
 
 - Task summary: This was the middle stretch where the project started feeling real. I kept going and tried to run a few what-if cases to see how the recommendations change, then cleaned up whatever looked confusing or weak from the earlier days. Once the base made some sense, I could finally move a bit faster and stop second guessing every tiny decision. A lot of this also meant checking if the numbers were making sense and not just trusting the first result that showed up.
 - Deliverable: Ended the day with scenario table in hand, plus a few side notes on what still needed fixing later. It was not super polished, just stable enough that I felt okay moving forward.
+## 2022-04-06 - Day 8: Validation
+
+- Task summary: Closer to the end, I was mostly tightening things up instead of inventing new scope. The job for the day was to check whether the outputs make practical sense to a normal decision maker so the final result looked a bit more complete. Most of the heavy lifting was already done, so this part was more about making the rough edges less obvious. I kept bouncing between the notebook, small observations, and quick plots until the direction felt usable.
+- Deliverable: Ended the day with validation notes in hand, plus a few side notes on what still needed fixing later. I also left myself a few rough reminders for the next day so I would not have to rediscover the same context again.
