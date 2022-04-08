@@ -40,3 +40,7 @@
 
 - Task summary: Closer to the end, I was mostly tightening things up instead of inventing new scope. The job for the day was to write clear recommendations based on the strongest scenarios so the final result looked a bit more complete. Toward the end I mostly kept trimming weird bits, fixing wording, and tying the loose parts together. Most of the progress here came from patient cleanup more than anything flashy.
 - Deliverable: Ended the day with recommendation summary in hand, plus a few side notes on what still needed fixing later. There were still a couple of loose parts, but nothing serious enough to block the next step.
+## 2022-04-08 - Day 10: Documentation wrap
+
+- Task summary: Used the last day on X Education Lead Prioritization to slow down and finish the loose ends. I mainly had to clean the notebook and explain the assumptions in the README and make sure the project told a clean story from start to finish. I was not trying to add anything fancy here, just making sure the thing looked complete enough to show someone. A lot of this also meant checking if the numbers were making sense and not just trusting the first result that showed up.
+- Deliverable: Finished with final documentation looking decent enough to call this version done, even if I could still nitpick a few things. It was not super polished, just stable enough that I felt okay moving forward.
