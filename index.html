@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revenue Operations Brief: Lead Prioritization at X Education</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* 
+      DESIGN SYSTEM: "Sales War-Room Memo"
+      Black and white only. Typography-driven.
+      Narrow left rail for callouts, broad prose right, oversized numeric dividers.
+    */
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --faint-text: #888888;
+      --rule-heavy: #111111;
+      --rule-light: #e8e8e8;
+      --f-display: 'Oswald', sans-serif;
+      --f-body: 'Source Sans 3', sans-serif;
+      --f-code: 'Fira Code', monospace;
+      --code-bg: #111111;
+      --code-text: #f5f5f5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--f-body);
+      font-size: 1.15rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .memo-shell {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      grid-gap: 4rem;
+      padding: 4rem 2rem;
+    }
+
+    /* Left Rail Stats */
+    .left-rail {
+      border-right: 2px solid var(--rule-heavy);
+      padding-right: 2rem;
+    }
+
+    .stat-block {
+      margin-bottom: 3rem;
+      border-top: 1px solid var(--rule-light);
+      padding-top: 1rem;
+    }
+
+    .stat-label {
+      font-family: var(--f-display);
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      color: var(--faint-text);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .stat-value {
+      font-family: var(--f-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--rule-heavy);
+    }
+
+    .stat-detail {
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      color: var(--faint-text);
+      line-height: 1.4;
+    }
+
+    /* Broad Prose Column */
+    .main-content {
+      max-width: 800px;
+    }
+
+    header {
+      margin-bottom: 4rem;
+      border-bottom: 6px solid var(--rule-heavy);
+      padding-bottom: 2rem;
+    }
+
+    .eyebrow {
+      font-family: var(--f-display);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 1.1rem;
+      color: #555;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: var(--f-display);
+      font-size: 4rem;
+      line-height: 1;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .deck {
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: #333;
+    }
+
+    /* Typography & h2 */
+    h2 {
+      font-family: var(--f-display);
+      font-size: 2.2rem;
+      text-transform: uppercase;
+      margin-top: 5rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border-bottom: 2px solid var(--rule-heavy);
+      padding-bottom: 0.5rem;
+    }
+
+    .oversized-num {
+      font-size: 3rem;
+      color: var(--faint-text);
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+    }
+
+    strong {
+      font-weight: 700;
+    }
+
+    ul {
+      margin-bottom: 1.5rem;
+      margin-left: 1.5rem;
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Code snippets */
+    pre {
+      background-color: var(--code-bg);
+      color: var(--code-text);
+      font-family: var(--f-code);
+      padding: 1.5rem;
+      margin: 2.5rem 0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      border-left: 8px solid #555;
+      overflow-x: auto;
+    }
+
+    code {
+      font-family: var(--f-code);
+    }
+
+    .c-comment { color: #888888; }
+    .c-key { color: #ffffff; font-weight: bold; }
+    .c-str { color: #cccccc; }
+
+    /* SVG Figures */
+    .visual-block {
+      margin: 4rem 0;
+      padding: 2rem;
+      border: 1px solid var(--rule-light);
+      background: var(--bg);
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .caption {
+      font-family: var(--f-body);
+      font-size: 0.95rem;
+      color: #444;
+      margin-top: 1.5rem;
+      font-style: italic;
+      border-left: 3px solid #111;
+      padding-left: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .memo-shell {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+      }
+      .left-rail {
+        border-right: none;
+        border-bottom: 2px solid var(--rule-heavy);
+        padding-right: 0;
+        padding-bottom: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+      .stat-block {
+        border-top: none;
+        margin-bottom: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="memo-shell">
+  
+  <aside class="left-rail">
+    <div class="stat-block">
+      <span class="stat-label">System State</span>
+      <span class="stat-value">Active</span>
+      <p class="stat-detail">Production-grade routing overriding CRM defaults.</p>
+    </div>
+    <div class="stat-block">
+      <span class="stat-label">Target Conversion</span>
+      <span class="stat-value">80%</span>
+      <p class="stat-detail">Expected close rate for top-decile prioritized leads.</p>
+    </div>
+    <div class="stat-block">
+      <span class="stat-label">Model KS Stat</span>
+      <span class="stat-value">90.0</span>
+      <p class="stat-detail">Kolmogorov-Smirnov statistic demonstrating extreme separability.</p>
+    </div>
+    <div class="stat-block">
+      <span class="stat-label">Capacity Floor</span>
+      <span class="stat-value">2,500</span>
+      <p class="stat-detail">Maximum daily call volume constrained by active SDR headcount.</p>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header>
+      <span class="eyebrow">Internal Briefing // Sales Operations</span>
+      <h1>Routing by Intent, Not by Arrival</h1>
+      <p class="deck">When human capital is the bottleneck, treating a predictive model purely as an algorithmic exercise fundamentally misses the point. The value of a classification engine is strictly dictated by how it rearranges the daily call queue.</p>
+    </header>
+
+    <p>A sales organization fielding inbound interest generally suffers from the same failure mode: arrival-time bias. At X Education, the symptom is glaringly obvious. The conversion rate across the total lead pool sits in the mid-single digits. We are actively suffocating under the weight of window-shoppers, draining expensive Sales Development Representative (SDR) hours on unqualified inquiries simply because they appeared in the CRM at the top of the hour.</p>
+
+    <p>The solution is not just to throw data science at the problem. A classification model that promises "better accuracy" means nothing to a sales director. Accuracy is an academic standard; revenue generation is an operational one. What we demand is forced prioritization. We require an engine that scores leads in real-time, deliberately discarding the garbage, identifying the high-intent prospects, and mapping them directly against our physical limit of outbound calls. If the score does not dictate routing policy, the model is a liability.</p>
+
+    <h2><span class="oversized-num">01</span> The Feature Trap and Operational Reality</h2>
+
+    <p>Selecting the signals that feed the classifier cannot be a sterile exercise in dataframe correlation. Missing values in our lead lists represent operational realities. A missing "Source" field does not just mean bad data entry; it implies organic, unassociated discovery. A lead that spends 45 minutes hovering on the pricing page but leaves a non-corporate email address is sending contradictory signals. We have to ruthlessly encode these proxies for intent.</p>
+
+    <p>We dropped features that were statistically dense but practically useless—vanity metrics like geographic region where our conversion rates have historically shown zero elasticity. Instead, we heavily penalized features that correlated strongly with rapid drop-offs: "Lead Profile" blanks and "Do Not Call" flags. In practical terms, feature selection is deciding what you allow the SDRs to ignore.</p>
+
+    <h2><span class="oversized-num">02</span> The Funnel Routing Architecture</h2>
+
+    <p>The true purpose of the model is to reshape the funnel into a deterministic sorting mechanism. The following architectural design demonstrates the exact moment the algorithmic output becomes operational law. Raw leads enter, the regression model generates a 0-100 probability score, but the crucial step is the threshold application.</p>
+
+    <div class="visual-block">
+      <svg viewBox="0 0 820 370" preserveAspectRatio="xMidYMid meet">
+        <!-- SVG Definitions -->
+        <defs>
+          <pattern id="diagonalHatch" width="10" height="10" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="0" y2="10" stroke="#ccc" stroke-width="2" />
+          </pattern>
+        </defs>
+
+        <!-- Funnel Background Context -->
+        <!-- Intake Phase -->
+        <rect x="20" y="20" width="160" height="310" fill="#f8f8f8" stroke="#111" stroke-width="2"/>
+        <text x="100" y="52" font-family="'Oswald', sans-serif" font-size="20" text-anchor="middle" font-weight="700">RAW INQUIRIES</text>
+        <text x="100" y="78" font-family="'Source Sans 3', sans-serif" font-size="14" fill="#555" text-anchor="middle">~10,000 / Day</text>
+
+        <!-- Funnel Lines connecting to Model Engine -->
+        <path d="M 180 85 L 300 125" stroke="#111" stroke-width="2" fill="none" />
+        <path d="M 180 265 L 300 225" stroke="#111" stroke-width="2" fill="none" />
+
+        <!-- Scoring Engine -->
+        <rect x="300" y="105" width="120" height="140" fill="#111" />
+        <text x="360" y="170" font-family="'Oswald', sans-serif" font-size="16" fill="#fff" text-anchor="middle" font-weight="700">REGRESSION</text>
+        <text x="360" y="190" font-family="'Oswald', sans-serif" font-size="16" fill="#fff" text-anchor="middle" font-weight="700">SCORER</text>
+
+        <!-- Routing Thresholds -->
+        <!-- High Intent Band -->
+        <path d="M 420 125 L 550 65 L 760 65 L 760 145 L 550 145 Z" fill="#fff" stroke="#111" stroke-width="2" />
+        <!-- Mid Intent Band -->
+        <path d="M 420 165 L 550 155 L 760 155 L 760 215 L 550 215 Z" fill="#e8e8e8" stroke="#111" stroke-width="1" />
+        <!-- Low Intent/Trash Band -->
+        <path d="M 420 205 L 550 225 L 760 225 L 760 310 L 550 310 Z" fill="url(#diagonalHatch)" stroke="#111" stroke-width="1" />
+
+        <!-- Labels in the bands -->
+        <text x="655" y="96" font-family="'Oswald', sans-serif" font-size="18" text-anchor="middle" font-weight="700">HOT TIER (&gt;85%)</text>
+        <text x="655" y="118" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#333" text-anchor="middle">Immediate routing. Bypass queues.</text>
+
+        <!-- Rep Capacity Overlay — positioned in WARM band gap below HOT -->
+        <line x1="535" y1="145" x2="800" y2="145" stroke="#111" stroke-width="3" stroke-dasharray="8 4"/>
+        <!-- Capacity label sits just inside the WARM band, below the dashed line -->
+        <text x="538" y="163" font-family="'Source Sans 3', sans-serif" font-size="11" font-weight="700" text-anchor="start">SDR CAPACITY LIMIT (2,500/day)</text>
+
+        <text x="655" y="193" font-family="'Oswald', sans-serif" font-size="14" text-anchor="middle" font-weight="700">WARM TIER (50-84%)</text>
+        <text x="655" y="211" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#555" text-anchor="middle">Nurture cadence only.</text>
+
+        <text x="655" y="262" font-family="'Oswald', sans-serif" font-size="14" text-anchor="middle" fill="#555" font-weight="700">COLD / NO GO (&lt;50%)</text>
+        <text x="655" y="282" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#555" text-anchor="middle">Automatic disqualification.</text>
+      </svg>
+      <div class="caption">
+        The Routing Funnel. The score is meaningless without the threshold mechanism. By drawing the threshold exactly at the point where the volume of High Intent leads matches our daily SDR capacity (2,500 calls), we ensure that human capital is never spent on lower-tier probabilities. The cutoff is an economic decision, not a mathematical one.
+      </div>
+    </div>
+
+    <h2><span class="oversized-num">03</span> Calibrating the Cutoff: Precision, Recall, and Staffing</h2>
+
+    <p>Choosing the threshold is the single most important choice a revenue operations lead makes during a deployment. Do we prioritize Precision (every call the team makes is highly likely to convert) or Recall (the team sweeps the pool, ensuring we drop zero potential buyers, but wasting time on duds)?</p>
+
+    <p>At X Education, staffing is fixed. We do not have infinite dialing hours. Therefore, we explicitly optimize for early-funnel Precision to hit our KS target. The Kolmogorov-Smirnov (KS) statistic measures the maximum separation between the cumulative distribution of our "Hot" leads and our non-converters. A KS stat of 90.0 is absurdly high—it confirms that the model completely separates buyers from passersby at the designated threshold. We drop the threshold logic natively into the predictive pipeline.</p>
+
+<pre><code><span class="c-comment"># Enforcing capacity-driven thresholds on the raw prediction probabilities</span>
+<span class="c-key">import</span> pandas <span class="c-key">as</span> pd
+<span class="c-key">from</span> sklearn.linear_model <span class="c-key">import</span> LogisticRegression
+
+<span class="c-comment"># Generate probability matrix from the trained logistic classifier</span>
+y_pred_prob = model.predict_proba(X_test)
+
+<span class="c-comment"># Hardcoded economic reality: </span>
+<span class="c-comment"># SDR capacity dictates that we only pursue the top 15% of inbound probability.</span>
+<span class="c-comment"># In a dataframe context, this converts raw floats into actionable routing tags.</span>
+OPERATIONAL_THRESHOLD = 0.85 
+
+leads_df['conversion_probability'] = y_pred_prob[:, 1]
+leads_df['routing_decision'] = leads_df['conversion_probability'].apply(
+    <span class="c-key">lambda</span> x: <span class="c-str">'Immediate_Outbound'</span> <span class="c-key">if</span> x >= OPERATIONAL_THRESHOLD <span class="c-key">else</span> <span class="c-str">'Nurture_Queue'</span>
+)
+
+<span class="c-comment"># The CRM integration will strictly filter on 'Immediate_Outbound'</span>
+</code></pre>
+
+    <h2><span class="oversized-num">04</span> Evaluation Through the Lens of Action</h2>
+
+    <p>A confusion matrix is typically used by data scientists to debate False Positives versus False Negatives. In a sales war-room, we translate these quadrants directly into dollars won and hours wasted.</p>
+
+    <div class="visual-block">
+      <svg viewBox="0 0 640 380" preserveAspectRatio="xMidYMid meet">
+        <!-- Matrix Grid — shifted right 20px for left margin -->
+        <rect x="220" y="60" width="150" height="130" fill="#111" />
+        <rect x="380" y="60" width="150" height="130" fill="#f8f8f8" stroke="#111" stroke-width="2" />
+        <rect x="220" y="200" width="150" height="130" fill="#e8e8e8" />
+        <rect x="380" y="200" width="150" height="130" fill="#ccc" />
+
+        <!-- Matrix Row Labels (left rail) -->
+        <text x="110" y="130" font-family="'Oswald', sans-serif" font-size="13" text-anchor="middle" font-weight="700">PREDICTED "HOT"</text>
+        <text x="110" y="270" font-family="'Oswald', sans-serif" font-size="13" text-anchor="middle" font-weight="700">PREDICTED "COLD"</text>
+
+        <!-- Matrix Column Headers -->
+        <text x="295" y="38" font-family="'Oswald', sans-serif" font-size="13" text-anchor="middle" font-weight="700">ACTUAL CONVERT</text>
+        <text x="455" y="38" font-family="'Oswald', sans-serif" font-size="13" text-anchor="middle" font-weight="700">ACTUAL BOUNCE</text>
+
+        <!-- Cell Texts -->
+        <!-- True Positives -->
+        <text x="295" y="102" font-family="'Oswald', sans-serif" font-size="28" fill="#fff" text-anchor="middle" dominant-baseline="middle">TP</text>
+        <text x="295" y="132" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#fff" text-anchor="middle">High hit-rate dialing.</text>
+        <text x="295" y="150" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#fff" text-anchor="middle">Maximum ROI.</text>
+
+        <!-- False Positives -->
+        <text x="455" y="102" font-family="'Oswald', sans-serif" font-size="28" fill="#111" text-anchor="middle" dominant-baseline="middle">FP</text>
+        <text x="455" y="132" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#333" text-anchor="middle">Wasted SDR hours.</text>
+        <text x="455" y="150" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#333" text-anchor="middle">Friction in queue.</text>
+
+        <!-- False Negatives -->
+        <text x="295" y="240" font-family="'Oswald', sans-serif" font-size="28" fill="#555" text-anchor="middle" dominant-baseline="middle">FN</text>
+        <text x="295" y="270" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#555" text-anchor="middle">Missed revenue.</text>
+        <text x="295" y="287" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#555" text-anchor="middle">Acceptable cost of</text>
+        <text x="295" y="304" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#555" text-anchor="middle">maintaining capacity.</text>
+
+        <!-- True Negatives -->
+        <text x="455" y="240" font-family="'Oswald', sans-serif" font-size="28" fill="#111" text-anchor="middle" dominant-baseline="middle">TN</text>
+        <text x="455" y="270" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#111" text-anchor="middle">Ignored correctly.</text>
+        <text x="455" y="287" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#111" text-anchor="middle">Saves team burnout.</text>
+      </svg>
+      <div class="caption">
+        The Operational Confusion Matrix. By enforcing a very strict prediction cutoff (&gt;0.85 probability), we deliberately increase False Negatives (buyers we ignore) to brutally minimize False Positives (duds we actually call). When SDR capacity is limited, dropping a few true buyers is mathematically superior to exhausting the sales team calling thousands of window-shoppers.
+      </div>
+    </div>
+
+    <h2><span class="oversized-num">05</span> Policy Deployment</h2>
+
+    <p>Implementation is not a software deployment; it is a behavioral change contract. The model will run batches hourly, scoring the intake from the web platform. Any score registering below the threshold is routed silently to automated email nurture sequences. The SDR dashboard will completely hide those records. The sales team will operate under the directive that every phone number hitting their screen possesses an 80% baseline likelihood of conversion.</p>
+
+    <p>If we refuse to hide the low-scoring leads, SDRs will resort to intuition, cherry-picking names they recognize or companies they like, completely defeating the purpose of the classifier. We must ruthlessly quarantine the noise.</p>
+    
+    <p>Revenue operations is the discipline of protecting sales velocity. This lead classification model, bound entirely in tight operational thresholds, ensures that velocity is never hindered by the volume of raw inquiry.</p>
+
+  </main>
+</div>
+
+</body>
+</html>
