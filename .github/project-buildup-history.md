@@ -8,3 +8,7 @@
 
 - Task summary: Started the main modeling work for X Education Lead Prioritization. The goal is to score each lead with a probability of conversion so the sales team can prioritize their calls. Built the logistic regression baseline today with proper train/test splits and class weight adjustment for the imbalanced classes. The baseline AUC was around 0.87 which is a decent starting point. Also looked at the calibration — the predicted probabilities were a bit overconfident at the extremes so added a Platt scaling step.
 - Deliverable: Logistic regression baseline at 0.87 AUC. Platt scaling added for calibration.
+## 2023-10-02 - Day 3: Logistic regression baseline
+
+- Task summary: Realized the lead source feature had 14 unique values and was being one-hot encoded, creating a very wide matrix. Applied target encoding instead to reduce dimensionality while preserving the signal.
+- Deliverable: Lead source target-encoded instead of one-hot. Matrix width reduced significantly.
