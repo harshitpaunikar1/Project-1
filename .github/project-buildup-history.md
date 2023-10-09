@@ -12,3 +12,7 @@
 
 - Task summary: Realized the lead source feature had 14 unique values and was being one-hot encoded, creating a very wide matrix. Applied target encoding instead to reduce dimensionality while preserving the signal.
 - Deliverable: Lead source target-encoded instead of one-hot. Matrix width reduced significantly.
+## 2023-10-09 - Day 4: Lead scoring refinement
+
+- Task summary: Refined the lead scoring model today by adding interaction terms between the most predictive pairs of features. The interaction between website visits count and time spent on the website was particularly useful — high visits with low time suggests browse-and-leave behavior which correlates with non-conversion. Also built the final scoring table output that ranks leads by predicted conversion probability with a suggested tier label.
+- Deliverable: Interaction features added. Final lead scoring output table built.
