@@ -20,3 +20,7 @@
 
 - Task summary: Worked on the business framing section of the X Education Lead Prioritization project. The model output is a score but what the sales team needs is an actionable decision rule. Wrote a section explaining how to set the score threshold based on team capacity — if the team can make 200 calls per week and there are 1000 leads, set the threshold at the 80th percentile. Also built a simple calculator cell that takes call capacity as input and returns the recommended threshold.
 - Deliverable: Business framing written. Threshold calculator based on call capacity added.
+## 2023-11-27 - Day 5: Business framing
+
+- Task summary: Added a section on model monitoring — what metrics to track over time to detect model degradation, and when to retrain.
+- Deliverable: Model monitoring guidance section added.
