@@ -24,3 +24,7 @@
 
 - Task summary: Added a section on model monitoring — what metrics to track over time to detect model degradation, and when to retrain.
 - Deliverable: Model monitoring guidance section added.
+## 2023-11-27 - Day 5: Business framing
+
+- Task summary: Cleaned up the notebook flow and moved all the configuration parameters to a single cell at the top so they're easy to find and change.
+- Deliverable: All config parameters moved to top cell.
