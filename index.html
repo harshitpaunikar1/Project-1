@@ -267,7 +267,7 @@
 
     <p>Selecting the signals that feed the classifier cannot be a sterile exercise in dataframe correlation. Missing values in our lead lists represent operational realities. A missing "Source" field does not just mean bad data entry; it implies organic, unassociated discovery. A lead that spends 45 minutes hovering on the pricing page but leaves a non-corporate email address is sending contradictory signals. We have to ruthlessly encode these proxies for intent.</p>
 
-    <p>We dropped features that were statistically dense but practically useless—vanity metrics like geographic region where our conversion rates have historically shown zero elasticity. Instead, we heavily penalized features that correlated strongly with rapid drop-offs: "Lead Profile" blanks and "Do Not Call" flags. In practical terms, feature selection is deciding what you allow the SDRs to ignore.</p>
+    <p>We dropped features that were statistically dense but practically useless-vanity metrics like geographic region where our conversion rates have historically shown zero elasticity. Instead, we heavily penalized features that correlated strongly with rapid drop-offs: "Lead Profile" blanks and "Do Not Call" flags. In practical terms, feature selection is deciding what you allow the SDRs to ignore.</p>
 
     <h2><span class="oversized-num">02</span> The Funnel Routing Architecture</h2>
 
@@ -309,7 +309,7 @@
         <text x="655" y="96" font-family="'Oswald', sans-serif" font-size="18" text-anchor="middle" font-weight="700">HOT TIER (&gt;85%)</text>
         <text x="655" y="118" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#333" text-anchor="middle">Immediate routing. Bypass queues.</text>
 
-        <!-- Rep Capacity Overlay — positioned in WARM band gap below HOT -->
+        <!-- Rep Capacity Overlay - positioned in WARM band gap below HOT -->
         <line x1="535" y1="145" x2="800" y2="145" stroke="#111" stroke-width="3" stroke-dasharray="8 4"/>
         <!-- Capacity label sits just inside the WARM band, below the dashed line -->
         <text x="538" y="163" font-family="'Source Sans 3', sans-serif" font-size="11" font-weight="700" text-anchor="start">SDR CAPACITY LIMIT (2,500/day)</text>
@@ -329,7 +329,7 @@
 
     <p>Choosing the threshold is the single most important choice a revenue operations lead makes during a deployment. Do we prioritize Precision (every call the team makes is highly likely to convert) or Recall (the team sweeps the pool, ensuring we drop zero potential buyers, but wasting time on duds)?</p>
 
-    <p>At X Education, staffing is fixed. We do not have infinite dialing hours. Therefore, we explicitly optimize for early-funnel Precision to hit our KS target. The Kolmogorov-Smirnov (KS) statistic measures the maximum separation between the cumulative distribution of our "Hot" leads and our non-converters. A KS stat of 90.0 is absurdly high—it confirms that the model completely separates buyers from passersby at the designated threshold. We drop the threshold logic natively into the predictive pipeline.</p>
+    <p>At X Education, staffing is fixed. We do not have infinite dialing hours. Therefore, we explicitly optimize for early-funnel Precision to hit our KS target. The Kolmogorov-Smirnov (KS) statistic measures the maximum separation between the cumulative distribution of our "Hot" leads and our non-converters. A KS stat of 90.0 is absurdly high-it confirms that the model completely separates buyers from passersby at the designated threshold. We drop the threshold logic natively into the predictive pipeline.</p>
 
 <pre><code><span class="c-comment"># Enforcing capacity-driven thresholds on the raw prediction probabilities</span>
 <span class="c-key">import</span> pandas <span class="c-key">as</span> pd
@@ -357,7 +357,7 @@ leads_df['routing_decision'] = leads_df['conversion_probability'].apply(
 
     <div class="visual-block">
       <svg viewBox="0 0 640 380" preserveAspectRatio="xMidYMid meet">
-        <!-- Matrix Grid — shifted right 20px for left margin -->
+        <!-- Matrix Grid - shifted right 20px for left margin -->
         <rect x="220" y="60" width="150" height="130" fill="#111" />
         <rect x="380" y="60" width="150" height="130" fill="#f8f8f8" stroke="#111" stroke-width="2" />
         <rect x="220" y="200" width="150" height="130" fill="#e8e8e8" />
